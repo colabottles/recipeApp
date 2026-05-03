@@ -1,0 +1,33 @@
+headers = []
+redirects = []
+
+[functions]
+
+[functions."*"]
+
+[[plugins]]
+origin = "ui"
+package = "@netlify/angular-runtime"
+
+[plugins.inputs]
+
+[build]
+publish = "C:\\Users\\Todd\\Developer\\recipeApp\\dist\\recipe-app\\browser"
+publishOrigin = "config"
+commandOrigin = "config"
+command = "npm install --legacy-peer-deps && npx ng build"
+
+[build.environment]
+NODE_VERSION = "18"
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]

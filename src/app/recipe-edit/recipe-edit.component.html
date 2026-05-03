@@ -1,0 +1,96 @@
+<main id="main-content">
+  <h1>Edit Recipe</h1>
+
+  <p *ngIf="loading">Loading recipe...</p>
+  <p *ngIf="error" role="alert">{{ error }}</p>
+
+  <form *ngIf="!loading && recipe" (ngSubmit)="onSubmit()" #recipeForm="ngForm">
+    <section aria-labelledby="basic-info-heading">
+      <h2 id="basic-info-heading">Basic Information</h2>
+
+      <label for="name">Recipe Name</label>
+      <input type="text" id="name" required [(ngModel)]="recipe.name" name="name">
+
+      <label for="category">Category</label>
+      <select id="category" [(ngModel)]="recipe.category" name="category">
+        <option value="">Select a category</option>
+        <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+      </select>
+
+      <label for="cuisine">Cuisine</label>
+      <select id="cuisine" [(ngModel)]="recipe.cuisine" name="cuisine">
+        <option value="">Select a cuisine</option>
+        <option *ngFor="let c of cuisines" [value]="c">{{ c }}</option>
+      </select>
+
+      <label for="difficulty">Difficulty</label>
+      <select id="difficulty" [(ngModel)]="recipe.difficulty" name="difficulty">
+        <option value="">Select difficulty</option>
+        <option *ngFor="let d of difficulties" [value]="d">{{ d }}</option>
+      </select>
+
+      <label for="servings">Servings</label>
+      <input type="number" id="servings" min="1" [(ngModel)]="recipe.servings" name="servings">
+
+      <label for="prepTime">Prep Time</label>
+      <input type="text" id="prepTime" placeholder="e.g. 15 mins" [(ngModel)]="recipe.prep_time"
+        name="prep_time">
+
+      <label for="cookTime">Cook Time</label>
+      <input type="text" id="cookTime" placeholder="e.g. 30 mins" [(ngModel)]="recipe.cook_time"
+        name="cook_time">
+    </section>
+
+    <section aria-labelledby="ingredients-heading">
+      <h2 id="ingredients-heading">Ingredients</h2>
+      <fieldset>
+        <legend class="sr-only">Ingredients list</legend>
+        <p *ngFor="let ingredient of ingredients; let i = index">
+          <label [for]="'ingredient_' + i">Ingredient {{ i + 1 }}</label>
+          <input
+            type="text"
+            [id]="'ingredient_' + i"
+            [(ngModel)]="ingredients[i]"
+            [name]="'ingredient_' + i"
+            placeholder="e.g. 2 cups flour">
+          <button type="button" (click)="removeIngredient(i)" [disabled]="ingredients.length === 1"
+            [attr.aria-label]="'Remove ingredient ' + (i + 1)">Remove</button>
+        </p>
+        <button type="button" (click)="addIngredient()">Add Ingredient</button>
+      </fieldset>
+    </section>
+
+    <section aria-labelledby="directions-heading">
+      <h2 id="directions-heading">Directions</h2>
+      <fieldset>
+        <legend class="sr-only">Directions list</legend>
+        <p *ngFor="let step of directions; let i = index">
+          <label [for]="'direction_' + i">Step {{ i + 1 }}</label>
+          <textarea
+            [id]="'direction_' + i"
+            [(ngModel)]="directions[i]"
+            [name]="'direction_' + i"
+            placeholder="Describe this step..."></textarea>
+          <button type="button" (click)="removeDirection(i)" [disabled]="directions.length === 1"
+            [attr.aria-label]="'Remove step ' + (i + 1)">Remove</button>
+        </p>
+        <button type="button" (click)="addDirection()">Add Step</button>
+      </fieldset>
+    </section>
+
+    <section aria-labelledby="additional-info-heading">
+      <h2 id="additional-info-heading">Additional Information</h2>
+
+      <label for="nutrition">Nutrition Facts</label>
+      <textarea id="nutrition" [(ngModel)]="recipe.nutrition" name="nutrition"></textarea>
+
+      <label for="notes">Notes</label>
+      <textarea id="notes" [(ngModel)]="recipe.notes" name="notes"></textarea>
+
+      <label for="image">Recipe Image</label>
+      <input type="file" id="image" accept="image/*" (change)="onFileSelected($event)">
+    </section>
+
+    <button type="submit" [disabled]="recipeForm.invalid">Save Changes</button>
+  </form>
+</main>

@@ -1,0 +1,6 @@
+[build]
+  command = "npm install --legacy-peer-deps && npx ng build"
+  publish = "dist/recipe-app/browser"
+
+[build.environment]
+  NODE_VERSION = "18"

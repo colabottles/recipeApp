@@ -1,0 +1,23 @@
+<main id="main-content">
+  <h1>Recipes</h1>
+
+  <p *ngIf="loading">Loading recipes...</p>
+  <p *ngIf="error" role="alert">{{ error }}</p>
+
+  <section aria-labelledby="recipe-list-heading">
+    <h2 id="recipe-list-heading" class="sr-only">Recipe List</h2>
+
+    <ul *ngIf="!loading && recipes.length">
+      <li *ngFor="let recipe of recipes">
+        <article>
+          <h3><a [routerLink]="['/recipe', recipe.id]">{{ recipe.name }}</a></h3>
+          <p class="recipe-meta">{{ recipe.cuisine }} · {{ recipe.category }}</p>
+          <p class="recipe-meta">{{ recipe.difficulty }} · {{ recipe.servings }} servings</p>
+          <p class="recipe-tags">Prep: {{ recipe.prep_time }} · Cook: {{ recipe.cook_time }}</p>
+        </article>
+      </li>
+    </ul>
+
+    <p *ngIf="!loading && !recipes.length">No recipes yet.</p>
+  </section>
+</main>

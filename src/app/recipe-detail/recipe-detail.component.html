@@ -1,0 +1,66 @@
+<main id="main-content">
+  <p *ngIf="loading">Loading recipe...</p>
+  <p *ngIf="error" role="alert">{{ error }}</p>
+
+  <article *ngIf="!loading && recipe">
+    <header>
+      <h1>{{ recipe.name }}</h1>
+      <nav aria-label="Recipe actions">
+        <a [routerLink]="['/recipe', recipe.id, 'edit']">Edit</a>
+        <button type="button" (click)="onDelete()" [disabled]="deleting">
+          {{ deleting ? 'Deleting...' : 'Delete' }}
+        </button>
+      </nav>
+    </header>
+
+    <section aria-labelledby="meta-heading">
+      <h2 id="meta-heading" class="sr-only">Recipe Details</h2>
+      <dl>
+        <dt>Category</dt>
+        <dd>{{ recipe.category }}</dd>
+        <dt>Cuisine</dt>
+        <dd>{{ recipe.cuisine }}</dd>
+        <dt>Difficulty</dt>
+        <dd>{{ recipe.difficulty }}</dd>
+        <dt>Servings</dt>
+        <dd>{{ recipe.servings }}</dd>
+        <dt>Prep Time</dt>
+        <dd>{{ recipe.prep_time }}</dd>
+        <dt>Cook Time</dt>
+        <dd>{{ recipe.cook_time }}</dd>
+      </dl>
+    </section>
+
+    <figure *ngIf="recipe.image_url">
+      <img [src]="recipe.image_url" [alt]="recipe.name">
+    </figure>
+
+    <section aria-labelledby="ingredients-heading">
+      <h2 id="ingredients-heading">Ingredients</h2>
+      <ul>
+        <li *ngFor="let ingredient of recipe.ingredients.split('\n')">{{ ingredient }}</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="directions-heading">
+      <h2 id="directions-heading">Directions</h2>
+      <ol>
+        <li *ngFor="let step of recipe.directions.split('\n')">{{ step }}</li>
+      </ol>
+    </section>
+
+    <section *ngIf="recipe.nutrition" aria-labelledby="nutrition-heading">
+      <h2 id="nutrition-heading">Nutrition Facts</h2>
+      <p>{{ recipe.nutrition }}</p>
+    </section>
+
+    <section *ngIf="recipe.notes" aria-labelledby="notes-heading">
+      <h2 id="notes-heading">Notes</h2>
+      <p>{{ recipe.notes }}</p>
+    </section>
+
+    <footer>
+      <a routerLink="/">Back to Recipes</a>
+    </footer>
+  </article>
+</main>

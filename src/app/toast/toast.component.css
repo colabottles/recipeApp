@@ -1,0 +1,25 @@
+.toast {
+  position: fixed;
+  bottom: var(--space-xl);
+  right: var(--space-xl);
+  padding: var(--space-md) var(--space-xl);
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  z-index: 1000;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+}
+
+.toast--success {
+  background-color: var(--color-maroon);
+  color: var(--color-white);
+  border-left: 4px solid var(--color-gold);
+}
+
+.toast--error {
+  background-color: #7a0000;
+  color: var(--color-white);
+  border-left: 4px solid #ff6b6b;
+}

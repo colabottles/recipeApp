@@ -1,0 +1,10 @@
+<div
+  *ngIf="toast"
+  class="toast"
+  [class.toast--success]="toast.type === 'success'"
+  [class.toast--error]="toast.type === 'error'"
+  role="status"
+  aria-live="polite"
+  aria-atomic="true">
+  {{ toast.message }}
+</div>
