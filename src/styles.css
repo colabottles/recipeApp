@@ -1,1 +1,73 @@
 /* You can add global styles to this file, and also import other style files */
+*,
+*::before,
+*::after {
+  box-sizing: content-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-gold: #F5AD18;
+  --color-magenta: #9E1C60;
+  --color-deep-magenta: #811844;
+  --color-maroon: #561530;
+  --color-white: #ffffff;
+  --color-body-text: #1a1a1a;
+  --color-surface: #fdf6ee;
+  --color-border: #e8d5c4;
+
+  --font-heading: 'Instrument Serif', Georgia, serif;
+  --font-body: 'Quicksand', system-ui, sans-serif;
+
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-body-text);
+  background-color: var(--color-surface);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+}
+
+a {
+  color: var(--color-deep-magenta);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+a:hover,
+a:focus {
+  color: var(--color-magenta);
+}
+
+a:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
