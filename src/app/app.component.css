@@ -136,3 +136,18 @@
   font-size: 0.85rem;
   color: #d4a8b8;
 }
+
+@media (max-width: 767px) {
+  .site-nav {
+    flex-wrap: wrap;
+    padding: var(--space-sm) 0;
+  }
+
+  .site-logo {
+    width: 100%;
+  }
+
+  .nav-link--cta {
+    margin-left: auto;
+  }
+}

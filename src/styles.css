@@ -71,3 +71,40 @@ a:focus-visible {
   white-space: nowrap;
   border: 0;
 }
+
+/* Mobile */
+@media (max-width: 767px) {
+  :root {
+    --space-xl: 1rem;
+    --space-2xl: 1.5rem;
+  }
+
+  .site-nav {
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .site-logo {
+    font-size: 1.25rem;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1024px) {
+  :root {
+    --space-xl: 1.5rem;
+    --space-2xl: 2rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}
