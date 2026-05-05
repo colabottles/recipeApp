@@ -1,6 +1,6 @@
 {
-  "name": "mise",
-  "version": "0.2.1",
+  "name": "tournant",
+  "version": "0.2.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
