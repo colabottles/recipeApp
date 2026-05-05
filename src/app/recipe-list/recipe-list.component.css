@@ -80,3 +80,21 @@ article h3 a:focus {
   font-size: 0.8rem;
   margin-top: var(--space-sm);
 }
+
+@media (max-width: 767px) {
+  main {
+    padding: var(--space-md);
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  ul {
+    grid-template-columns: 1fr;
+  }
+
+  article {
+    padding: var(--space-md);
+  }
+}

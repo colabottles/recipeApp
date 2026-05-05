@@ -138,16 +138,35 @@
 }
 
 @media (max-width: 767px) {
+  .site-header {
+    padding: var(--space-sm) var(--space-md);
+  }
+
   .site-nav {
-    flex-wrap: wrap;
-    padding: var(--space-sm) 0;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-sm);
   }
 
   .site-logo {
-    width: 100%;
+    font-size: 1.25rem;
+    margin-right: 0;
+  }
+
+  .nav-link:not(.nav-link--cta) {
+    display: none;
   }
 
   .nav-link--cta {
-    margin-left: auto;
+    font-size: 0.875rem;
+    padding: var(--space-xs) var(--space-sm);
+    white-space: nowrap;
+  }
+
+  .site-footer {
+    padding: var(--space-md);
+    margin-top: var(--space-xl);
+    font-size: 0.875rem;
   }
 }

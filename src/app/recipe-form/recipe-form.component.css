@@ -129,19 +129,36 @@ button[type="submit"]:disabled {
 }
 
 @media (max-width: 767px) {
-  input[type="text"],
-  input[type="number"],
-  select,
-  textarea {
-    font-size: 16px;
+  main {
+    padding: var(--space-md);
   }
-}
 
-@media (max-width: 767px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+  }
+
   input[type="text"],
   input[type="number"],
   select,
   textarea {
     font-size: 16px;
+    width: 100%;
+  }
+
+  fieldset {
+    padding: var(--space-md);
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    text-align: center;
+  }
+
+  button[type="button"] {
+    font-size: 0.875rem;
   }
 }

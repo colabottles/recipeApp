@@ -144,3 +144,36 @@ footer {
   padding-top: var(--space-lg);
   border-top: 1px solid var(--color-border);
 }
+
+@media (max-width: 767px) {
+  main {
+    padding: var(--space-md);
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  header {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  header nav {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  dl {
+    grid-template-columns: 1fr;
+    gap: var(--space-xs);
+  }
+
+  dt {
+    margin-top: var(--space-sm);
+  }
+}
