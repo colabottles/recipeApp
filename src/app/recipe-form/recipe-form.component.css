@@ -131,6 +131,12 @@ button[type="submit"]:disabled {
 @media (max-width: 767px) {
   main {
     padding: var(--space-md);
+    overflow-x: hidden;
+  }
+
+  form {
+    width: 100%;
+    overflow-x: hidden;
   }
 
   h1 {
@@ -146,16 +152,20 @@ button[type="submit"]:disabled {
   select,
   textarea {
     font-size: 16px;
-    width: 100%;
+    width: calc(100% - var(--space-xl));
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   fieldset {
     padding: var(--space-md);
+    width: calc(100% - var(--space-xl));
+    box-sizing: border-box;
   }
 
   button[type="submit"] {
     width: 100%;
-    text-align: center;
+    box-sizing: border-box;
   }
 
   button[type="button"] {
